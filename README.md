@@ -1,145 +1,169 @@
-📊 A/B Testing Analysis: Landing Page Conversion Optimization
+# 📊 A/B Testing Analysis: Landing Page Conversion Optimization
 
+## 📌 Project Overview
 
-📌 Project Overview
+This project analyzes an A/B testing experiment to evaluate whether a **new landing page** improves user conversion rates compared to the **existing landing page**.
 
-This project analyzes an A/B testing experiment conducted to determine whether a new landing page improves user conversion rates compared to the existing landing page.
+The project follows an end-to-end data analytics workflow, including data cleaning, exploratory data analysis (EDA), statistical hypothesis testing, and business decision-making.
 
-The analysis follows a complete data analytics workflow:
+---
 
-Data cleaning
-Exploratory Data Analysis (EDA)
-Data validation
-Conversion rate analysis
-Statistical hypothesis testing (Chi-square Test)
-Business recommendation
-🎯 Business Problem
+## 🎯 Business Problem
 
-A company introduced a new landing page and wanted to determine whether it leads to higher user conversions than the existing landing page.
+A company introduced a new landing page and wanted to determine whether it increases user conversions compared to the existing landing page.
 
-The goal of this project is to answer:
+**Objective:** Determine if the new landing page should replace the existing one based on statistical evidence.
 
-Should the company replace the existing landing page with the new one based on experimental data?
+---
 
-📂 Dataset
+## 📂 Dataset
 
-The dataset contains user-level A/B testing data with the following columns:
+The dataset contains user-level A/B testing data with the following features:
 
-Column	Description
-user_id	Unique identifier for each user
-timestamp	Time of user interaction
-group	Experiment group (control or treatment)
-landing_page	Page shown (old_page or new_page)
-converted	Whether the user converted (1 = Yes, 0 = No)
+| Column | Description |
+|---------|-------------|
+| `user_id` | Unique identifier for each user |
+| `timestamp` | Time of user interaction |
+| `group` | Experiment group (control/treatment) |
+| `landing_page` | Page shown to the user |
+| `converted` | Whether the user converted (1 = Yes, 0 = No) |
 
-Initial dataset size:
+- Initial Dataset Size: **294,478 rows**
+- Final Cleaned Dataset: **288,540 rows**
 
-294,478 records
+---
 
-Final cleaned dataset:
+## 🛠️ Technologies Used
 
-288,540 records
-🧹 Data Cleaning
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- SciPy
+- Jupyter Notebook
+
+---
+
+# 🧹 Data Cleaning
 
 The following preprocessing steps were performed:
 
-✅ Checked missing values
+- ✅ Checked for missing values
+- ✅ Removed duplicate users (3,894 duplicates)
+- ✅ Removed mismatched experiment records
+- ✅ Validated experiment integrity
 
-No missing values were found.
+Final Dataset Shape:
 
-✅ Removed duplicate users
-Duplicate users detected: 3,894
-Retained only the first occurrence of each user.
-✅ Removed inconsistent experiment records
-
-Rows where:
-
-Control users viewed the new page
-Treatment users viewed the old page
-
-were removed to maintain experiment integrity.
-
-Final dataset:
-
+```
 288,540 rows × 5 columns
-📊 Exploratory Data Analysis
-Group Distribution
-Group	Users
-Control	144,226
-Treatment	144,314
+```
 
-The experiment was evenly randomized (~50% in each group).
+---
 
-Landing Page Distribution
-Landing Page	Users
-Old Page	144,226
-New Page	144,314
-Conversion Rates
-Group	Conversion Rate
-Control (Old Page)	12.03%
-Treatment (New Page)	11.87%
+# 📊 Exploratory Data Analysis
 
-The observed difference is:
+## Experiment Distribution
 
-0.16 percentage points
+| Group | Users |
+|--------|-------:|
+| Control | 144,226 |
+| Treatment | 144,314 |
 
-Although the old page shows a slightly higher conversion rate, statistical testing is required to determine whether this difference is meaningful.
+The experiment was evenly randomized (~50% users in each group).
 
-📈 Visualization
+---
 
-A bar chart was created to compare conversion rates between the control and treatment groups.
+## Landing Page Distribution
 
-(Add your chart image here once uploaded.)
+| Landing Page | Users |
+|--------------|-------:|
+| Old Page | 144,226 |
+| New Page | 144,314 |
 
-Example:
+---
 
-images/conversion_rate.png
-📐 Statistical Analysis
-Hypothesis
-Null Hypothesis (H₀)
+## Conversion Rate
 
-The conversion rates of the old and new landing pages are equal.
+| Group | Conversion Rate |
+|--------|----------------:|
+| Control (Old Page) | **12.03%** |
+| Treatment (New Page) | **11.87%** |
 
-Alternative Hypothesis (H₁)
+The new landing page showed a slightly lower conversion rate (0.16 percentage points).
 
-The conversion rates are different.
+---
 
-Statistical Test
+# 📈 Visualization
 
-Chi-square Test of Independence
+### Conversion Rate by Group
 
-Results
-Metric	Value
-Chi-square Statistic	1.6602
-P-value	0.1976
-Significance Level	0.05
-📌 Conclusion
+> Add your visualization here after uploading the image.
 
-Since:
+```markdown
+![Conversion Rate](images/conversion_rate.png)
+```
 
-P-value = 0.1976 > 0.05
+---
 
-we fail to reject the null hypothesis.
+# 📐 Statistical Hypothesis Testing
 
-There is no statistically significant evidence that the new landing page performs differently from the old landing page.
+## Hypotheses
 
-Although the observed conversion rate of the new page is slightly lower, the difference can reasonably be explained by random variation.
+### Null Hypothesis (H₀)
 
-💼 Business Recommendation
+There is **no significant difference** in conversion rates between the old and new landing pages.
+
+### Alternative Hypothesis (H₁)
+
+There **is a significant difference** in conversion rates between the two landing pages.
+
+---
+
+## Statistical Test
+
+**Chi-Square Test of Independence**
+
+### Results
+
+| Metric | Value |
+|--------|------:|
+| Chi-Square Statistic | **1.6602** |
+| P-value | **0.1976** |
+| Significance Level (α) | **0.05** |
+
+---
+
+# 📌 Interpretation
+
+Since
+
+```
+p-value = 0.1976 > 0.05
+```
+
+we **fail to reject the null hypothesis**.
+
+There is **no statistically significant evidence** that the new landing page performs differently from the existing landing page.
+
+Although the observed conversion rate for the new page is slightly lower, the difference is small enough to be explained by random variation.
+
+---
+
+# 💼 Business Recommendation
 
 Based on the statistical analysis:
 
-Do not replace the current landing page.
-The new landing page does not demonstrate a statistically significant improvement in conversions.
-Consider redesigning the new page or conducting another experiment with additional changes.
-🛠️ Technologies Used
-Python
-Pandas
-NumPy
-Matplotlib
-SciPy
-📁 Project Structure
-AB-Testing-Analysis/
+- Do **not** replace the existing landing page.
+- The new landing page does not provide a statistically significant improvement.
+- Consider redesigning the new page and conducting another A/B experiment before deployment.
+
+---
+
+# 📁 Project Structure
+
+```
+ab-testing-product-analytics/
 │
 ├── data/
 │   └── ab_data.csv
@@ -153,18 +177,47 @@ AB-Testing-Analysis/
 ├── README.md
 │
 └── requirements.txt
-📚 Skills Demonstrated
-Data Cleaning
-Exploratory Data Analysis (EDA)
-Data Validation
-Statistical Hypothesis Testing
-Chi-square Test
-A/B Testing
-Conversion Rate Analysis
-Business Decision Making
-Product Analytics
-🚀 Key Takeaways
-Cleaned and validated an A/B testing dataset containing over 288,000 user records.
-Evaluated conversion performance between control and treatment groups.
-Applied the Chi-square hypothesis test to assess statistical significance.
-Translated statistical findings into actionable business recommendations.
+```
+
+---
+
+# 🚀 Skills Demonstrated
+
+- Data Cleaning
+- Exploratory Data Analysis (EDA)
+- A/B Testing
+- Product Analytics
+- Conversion Rate Analysis
+- Statistical Hypothesis Testing
+- Chi-Square Test
+- Business Decision Making
+- Data Visualization
+
+---
+
+# 📚 Key Learnings
+
+- Cleaned and validated a real-world A/B testing dataset containing over **288,000 user records**.
+- Compared conversion performance between control and treatment groups.
+- Applied the Chi-Square test to determine statistical significance.
+- Converted statistical findings into actionable business recommendations.
+
+---
+
+## ⭐ Repository Highlights
+
+✔ End-to-end A/B Testing Analysis
+
+✔ Real-world Data Cleaning
+
+✔ Statistical Hypothesis Testing
+
+✔ Product Analytics Case Study
+
+✔ Business-Oriented Insights
+
+---
+
+## 📬 Contact
+
+If you have any suggestions or feedback, feel free to connect with me on LinkedIn or reach out through GitHub.
