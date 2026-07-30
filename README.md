@@ -101,8 +101,7 @@ The new landing page showed a slightly lower conversion rate (0.16 percentage po
 > Add your visualization here after uploading the image.
 
 ```markdown
-![image_alt](<img width="562" height="455" alt="image" src="https://github.com/user-attachments/assets/a347f166-8d4a-48e7-b307-0aa6d251406b" />
-)
+![image_alt](https://github.com/user-attachments/assets/a347f166-8d4a-48e7-b307-0aa6d251406b />)
 ```
 
 ---
