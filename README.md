@@ -213,7 +213,3 @@ ab-testing-product-analytics/
 ✔ Business-Oriented Insights
 
 ---
-
-## 📬 Contact
-
-If you have any suggestions or feedback, feel free to connect with me on LinkedIn or reach out through GitHub.
