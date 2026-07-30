@@ -101,7 +101,7 @@ The new landing page showed a slightly lower conversion rate (0.16 percentage po
 > Add your visualization here after uploading the image.
 
 ```markdown
-![image_alt](https://github.com/Yug942/AB-Testing-Analysis-Landing-Page-Conversion-Optimization/blob/e2803ec3d23de5b23f4b991d53e22c60e1d3f95a/imagesconversion_rate.png)
+![Conversion Rate](imagesconversion_rate.png)
 ```
 
 ---
