@@ -100,9 +100,8 @@ The new landing page showed a slightly lower conversion rate (0.16 percentage po
 
 > Add your visualization here after uploading the image.
 
-```markdown
+
 ![Conversion Rate](imagesconversion_rate.png)
-```
 
 ---
 
